@@ -3,10 +3,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
     <data>
-
+        <variable name="viewmodel" type="com.example.weather.viewmodels.MainViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
@@ -22,6 +22,7 @@
                   android:id="@+id/mapFragment"
                   android:name="com.google.android.gms.maps.SupportMapFragment"/>
         <include layout="@layout/view_changed_city"
+                 app:city="@{viewmodel.changedCity}"
                  app:layout_constraintBottom_toBottomOf="@+id/mapFragment"
                  app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
                  android:layout_width="0dp" android:layout_height="wrap_content"/>
