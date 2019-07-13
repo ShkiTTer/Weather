@@ -1,5 +1,6 @@
 package com.example.weather.binding
 
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.example.weather.Constants
@@ -40,5 +41,16 @@ object DataBindingAdapters {
             Constants.SNOW -> view.setImageResource(R.drawable.snow)
             Constants.MIST -> view.setImageResource(R.drawable.mist)
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("app:viewVisible")
+    fun setViewVisible(view: View, viewVisible: Boolean?) {
+        if (viewVisible == null) return
+
+        if (viewVisible) {
+            view.visibility = View.VISIBLE
+        }
+        else view.visibility = View.GONE
     }
 }

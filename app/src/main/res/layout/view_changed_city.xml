@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                        android:layout_height="wrap_content"
-                                                       android:background="@drawable/round_view">
+                                                       android:background="@drawable/round_view"
+    app:viewVisible="@{city.isChanged}">
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:id="@+id/tvChangedCityName" app:layout_constraintStart_toStartOf="parent"
                   app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/tvChangedCityCoords"
                 tools:text="45°16'44.7&quot;N 9°43'33.2&quot;E"
-                android:text="@{city.location}"
+                android:text="@{@string/location_template(city.latitude, city.longitude)}"
                 app:layout_constraintTop_toBottomOf="@+id/tvChangedCityName"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp" android:textColor="@color/mainText"/>

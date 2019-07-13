@@ -5,7 +5,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import com.example.weather.data.CityData
 import com.example.weather.utils.GeocoderUtil
-import com.example.weather.utils.LocationConventer
+import com.example.weather.utils.LocationConverter
 import com.google.android.gms.maps.model.LatLng
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
@@ -15,10 +15,12 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     var changedCity: ObservableField<CityData> = ObservableField()
 
     fun changePoint(location: LatLng) {
-        val place = geocoderUtil.getCityName(location)
-        val coords =
-            LocationConventer.latituteConvert(location.latitude) + " " + LocationConventer.longitudeConvert(location.longitude)
-        val city = CityData(place, coords)
+        val city = CityData(
+            geocoderUtil.getCityName(location),
+            LocationConverter.latitudeConvert(location.latitude),
+            LocationConverter.longitudeConvert(location.longitude)
+        )
+
         changedCity.set(city)
     }
 }
