@@ -34,9 +34,9 @@ object WeatherConverter {
     }
 
     @JvmStatic
-    fun convertPressure(pressure: Int?): String {
-        if (pressure == null) return EMPTY_STRING
+    fun convertPressure(pressure: Int?): Double {
+        if (pressure == null) return .0
 
-        return String.format("%.2f", (pressure * Constants.HPA_TO_MMHG))
+        return pressure * Constants.HPA_TO_MMHG
     }
 }
