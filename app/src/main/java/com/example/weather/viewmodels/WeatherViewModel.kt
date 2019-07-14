@@ -12,17 +12,7 @@ class WeatherViewModel : ViewModel() {
 
     fun getWeather(city: String) {
         repository.getWeather(city) {
-            val weatherData = WeatherData(
-                it.main.temp.toInt(),
-                it.weather[0].description,
-                it.weather[0].icon,
-                it.main.pressure,
-                it.main.humidity,
-                it.wind.speed,
-                it.wind.deg
-            )
-
-            currentWeather.set(weatherData)
+            currentWeather.set(it)
         }
     }
 }

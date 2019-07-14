@@ -9,6 +9,10 @@
     <string name="pressure_label">Pressure</string>
 
     <string name="location_template">%s %s</string>
+    <string name="temp_template">%d℃</string>
+    <string name="humidity_template">%d%%</string>
+    <string name="wind_template">%s %d m/s</string>
+    <string name="pressure_template">%s mm Hg</string>
 
     <string name="image_url">http://openweathermap.org/img/wn/%s@2x.png</string>
 </resources>
