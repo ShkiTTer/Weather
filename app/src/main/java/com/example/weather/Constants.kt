@@ -5,6 +5,9 @@ object Constants {
     const val API_KEY = "2fabe55b56feaaa7a007e467f6c4a105"
     const val WEATHER_UNITS = "metric"
 
+    const val INTENT_CITY = "city"
+    const val PERMISSION_REQUEST_CODE = 1
+
     const val HPA_TO_MMHG = .75
 
     const val CLEAR_SKY = "01"

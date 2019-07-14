@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.weather.Constants
 import com.example.weather.R
 import com.example.weather.databinding.ActivityMainBinding
 import com.example.weather.utils.PermissionUtil
@@ -29,9 +30,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapCli
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(
@@ -44,8 +42,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapCli
             lifecycleOwner = this@MainActivity
         }
 
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
         btnShow.setOnClickListener {
             val intent = Intent(this, WeatherActivity::class.java)
+            intent.putExtra(Constants.INTENT_CITY, mainViewModel.changedCity.get()?.name)
             startActivity(intent)
         }
 
