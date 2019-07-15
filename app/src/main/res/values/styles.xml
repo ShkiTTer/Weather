@@ -15,6 +15,13 @@
     </style>
 
     <style name="SearchViewTheme" parent="Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/cancel</item>
+        <item name="android:closeIcon">@drawable/cancel</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+        <item name="android:queryHint">@string/hint_search_view</item>
+        <item name="android:searchIcon">@drawable/search</item>
+        <item name="android:background">@drawable/search_view_background</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:iconifiedByDefault">false</item>
     </style>
 </resources>
