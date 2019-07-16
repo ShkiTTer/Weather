@@ -5,6 +5,7 @@ import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
 import com.example.weather.Constants
 import com.example.weather.R
 
@@ -35,7 +36,7 @@ object DataBindingAdapters {
         when (image.dropLast(1)) {
             Constants.CLEAR_SKY -> view.setImageResource(R.drawable.clear_sky)
             Constants.FEW_CLOUDS -> view.setImageResource(R.drawable.few_clouds)
-            Constants.SCATTERED_CLOUDS -> view.setImageResource(R.drawable.clear_sky)
+            Constants.SCATTERED_CLOUDS -> view.setImageResource(R.drawable.scatterd_clouds)
             Constants.BROKEN_CLOUDS -> view.setImageResource(R.drawable.broken_clouds)
             Constants.SHOWER_RAIN -> view.setImageResource(R.drawable.shower_rain)
             Constants.RAIN -> view.setImageResource(R.drawable.rain)
