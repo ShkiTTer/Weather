@@ -1,6 +1,8 @@
 package com.example.weather.binding
 
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.example.weather.Constants
@@ -44,13 +46,15 @@ object DataBindingAdapters {
     }
 
     @JvmStatic
-    @BindingAdapter("app:viewVisible")
-    fun setViewVisible(view: View, viewVisible: Boolean?) {
-        if (viewVisible == null) return
+    @BindingAdapter("app:viewVisibility")
+    fun setViewVisibility(view: View, visibility: Boolean?) {
+        if (visibility == null) return
 
-        if (viewVisible) {
+        if (visibility) {
             view.visibility = View.VISIBLE
         }
-        else view.visibility = View.GONE
+        else {
+            view.visibility = View.GONE
+        }
     }
 }

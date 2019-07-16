@@ -6,15 +6,17 @@
 
     <data>
         <import type="androidx.databinding.ObservableField"/>
+        <import type="androidx.lifecycle.LiveData"/>
         <import type="com.example.weather.binding.WeatherConverter"/>
 
         <variable name="weather" type="ObservableField&lt;com.example.weather.data.WeatherData>"/>
+        <variable name="networkState" type="LiveData&lt;com.example.weather.NetworkState>"/>
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:layout_width="match_parent"
                                                            android:layout_height="match_parent"
                                                            android:id="@+id/swipeRefresh"
-    app:refreshing="@{weather == null}">
+                                                           app:refreshing="@{networkState.name == `LOADING`}">
         <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                            android:layout_height="match_parent">
 
