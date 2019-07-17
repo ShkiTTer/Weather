@@ -1,11 +1,8 @@
 package com.example.weather.binding
 
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import androidx.databinding.InverseBindingAdapter
 import com.example.weather.Constants
 import com.example.weather.R
 
@@ -53,8 +50,7 @@ object DataBindingAdapters {
 
         if (visibility) {
             view.visibility = View.VISIBLE
-        }
-        else {
+        } else {
             view.visibility = View.GONE
         }
     }

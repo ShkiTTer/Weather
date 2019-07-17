@@ -1,6 +1,6 @@
 package com.example.weather.api
 
-import com.example.weather.Constants
+import com.example.weather.ApiConstants
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -11,7 +11,7 @@ interface ApiService {
     companion object {
         fun create(): ApiService {
             val retrofit = Retrofit.Builder()
-                .baseUrl(Constants.WEATHER_BASE_URL)
+                .baseUrl(ApiConstants.WEATHER_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

@@ -1,10 +1,6 @@
 package com.example.weather
 
 object Constants {
-    const val WEATHER_BASE_URL = "https://api.openweathermap.org/data/2.5/"
-    const val API_KEY = "2fabe55b56feaaa7a007e467f6c4a105"
-    const val WEATHER_UNITS = "metric"
-
     const val INTENT_CITY = "city"
     const val PERMISSION_REQUEST_CODE = 1
 

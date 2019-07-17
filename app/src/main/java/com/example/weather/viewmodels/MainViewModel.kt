@@ -4,7 +4,6 @@ import android.app.Application
 import android.location.Location
 import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.weather.data.CityData
 import com.example.weather.utils.GeocoderUtil

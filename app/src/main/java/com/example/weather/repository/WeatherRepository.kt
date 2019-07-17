@@ -1,6 +1,6 @@
 package com.example.weather.repository
 
-import com.example.weather.Constants
+import com.example.weather.ApiConstants
 import com.example.weather.NetworkState
 import com.example.weather.api.ApiService
 import com.example.weather.api.Weather
@@ -20,7 +20,7 @@ class WeatherRepository(private val apiService: ApiService) {
             var weather: Response<Weather>
 
             try {
-                weather = apiService.getWeather(city, Constants.API_KEY, Constants.WEATHER_UNITS).execute()
+                weather = apiService.getWeather(city, ApiConstants.WEATHER_API, ApiConstants.WEATHER_UNITS).execute()
             } catch (t: Throwable) {
                 updateWeather(null, NetworkState.ERROR)
                 return@launch
