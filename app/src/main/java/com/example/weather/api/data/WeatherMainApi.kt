@@ -1,6 +1,6 @@
-package com.example.weather.api
+package com.example.weather.api.data
 
-data class WeatherMain (
+data class WeatherMainApi (
     val temp: Double,
     val pressure: Int,
     val humidity: Int

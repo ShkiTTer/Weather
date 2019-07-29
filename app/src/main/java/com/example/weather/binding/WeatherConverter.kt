@@ -26,7 +26,7 @@ object WeatherConverter {
     }
 
     @JvmStatic
-    fun convertWindDir(deg: Int?): String {
+    fun convertWindDir(deg: Double?): String {
         if (deg == null) return EMPTY_STRING
 
         val value = (deg / 22.5 + .5).toInt()

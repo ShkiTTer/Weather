@@ -1,6 +1,7 @@
 package com.example.weather.api
 
 import com.example.weather.ApiConstants
+import com.example.weather.api.data.WeatherApi
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,5 +21,5 @@ interface ApiService {
     }
 
     @GET("weather")
-    fun getWeather(@Query("q") city: String, @Query("appid") apiKey: String, @Query("units") units: String): Call<Weather>
+    fun getWeather(@Query("q") city: String, @Query("appid") apiKey: String, @Query("units") units: String): Call<WeatherApi>
 }

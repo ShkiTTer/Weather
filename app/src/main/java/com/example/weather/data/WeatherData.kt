@@ -7,5 +7,5 @@ data class WeatherData(
     val pressure: Int,
     val humidity: Int,
     val windSpeed: Double,
-    val windDir: Int
+    val windDir: Double
 )
