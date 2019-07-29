@@ -2,6 +2,7 @@ package com.example.weather.repository
 
 import com.example.weather.ApiConstants
 import com.example.weather.NetworkState
+import com.example.weather.api.ApiProvider
 import com.example.weather.api.ApiService
 import com.example.weather.api.data.WeatherApi
 import com.example.weather.data.WeatherData
@@ -14,7 +15,7 @@ import kotlin.coroutines.CoroutineContext
 
 class WeatherRepository(private val apiService: ApiService) : CoroutineScope {
     companion object {
-        val instance by lazy { WeatherRepository(ApiService.create()) }
+        val instance by lazy { WeatherRepository(ApiProvider.create()) }
     }
 
     private val job = Job()
@@ -23,6 +24,8 @@ class WeatherRepository(private val apiService: ApiService) : CoroutineScope {
 
     fun getWeather(city: String, updateWeather: (weather: WeatherData?, networkState: NetworkState) -> Unit) {
         launch {
+            updateWeather(null, NetworkState.LOADING)
+
             val weather: Response<WeatherApi>
 
             try {

@@ -1,7 +1,6 @@
-package com.example.weather.utils
+package com.example.weather.api
 
 import com.example.weather.ApiConstants
-import com.example.weather.api.ApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
