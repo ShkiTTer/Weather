@@ -51,11 +51,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapCli
             startActivity(intent)
         }
 
-        mainViewModel.currentLocation.observe(this, Observer {
-            currentLocation = it
-            moveCamera(locationToLatLng(it))
-        })
-
         if (!PermissionUtil.checkPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
             PermissionUtil.requestPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
             return
@@ -79,6 +74,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapCli
 
         enableMyLocation()
         mainViewModel.getLocation()
+
+        mainViewModel.currentLocation.observe(this, Observer {
+            currentLocation = it
+            moveCamera(locationToLatLng(it))
+        })
     }
 
     override fun onMapClick(latLng: LatLng) {
