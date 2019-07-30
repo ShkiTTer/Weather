@@ -18,16 +18,17 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     val changedCity: ObservableField<CityData> = ObservableField()
     val currentLocation = MutableLiveData<Location>()
-    var cityQuery: ObservableField<String> = ObservableField()
 
     fun changePoint(location: LatLng) {
-        val city = CityData(
-            geocoderUtil.getCityName(location),
-            LocationConverter.latitudeConvert(location.latitude),
-            LocationConverter.longitudeConvert(location.longitude)
-        )
+        geocoderUtil.getCityName(location) {
+            val city = CityData(
+                it,
+                LocationConverter.latitudeConvert(location.latitude),
+                LocationConverter.longitudeConvert(location.longitude)
+            )
 
-        changedCity.set(city)
+            changedCity.set(city)
+        }
     }
 
     fun getLocation() {
