@@ -12,8 +12,9 @@ class WeatherViewModel : ViewModel() {
 
     val currentWeather: ObservableField<WeatherData> = ObservableField()
     val networkState: MutableLiveData<NetworkState> = MutableLiveData()
+    var city = ""
 
-    fun getWeather(city: String) {
+    fun getWeather() {
         repository.getWeather(city) { weather, network ->
             currentWeather.set(weather)
             networkState.postValue(network)

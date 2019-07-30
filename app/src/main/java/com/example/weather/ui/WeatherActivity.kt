@@ -18,7 +18,6 @@ class WeatherActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWeatherBinding
     private lateinit var viewModel: WeatherViewModel
-    private lateinit var city: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +27,11 @@ class WeatherActivity : AppCompatActivity() {
             R.layout.activity_weather
         )
 
-        city = intent.extras?.getString(Constants.INTENT_CITY)!!
+        val city = intent.extras?.getString(Constants.INTENT_CITY)!!
         title = city
 
         viewModel = ViewModelProviders.of(this).get(WeatherViewModel::class.java)
+        viewModel.city = city
 
         binding.apply {
             lifecycleOwner = this@WeatherActivity
@@ -39,10 +39,10 @@ class WeatherActivity : AppCompatActivity() {
             networkState = viewModel.networkState
         }
 
-        getWeather(city)
+        getWeather()
 
         swipeRefresh.setOnRefreshListener {
-            getWeather(city)
+            getWeather()
         }
 
         viewModel.networkState.observe(this, Observer {
@@ -63,8 +63,8 @@ class WeatherActivity : AppCompatActivity() {
         } else super.onOptionsItemSelected(item)
     }
 
-    private fun getWeather(city: String) {
-        viewModel.getWeather(city)
+    private fun getWeather() {
+        viewModel.getWeather()
     }
 
     private fun showError() {
@@ -72,7 +72,7 @@ class WeatherActivity : AppCompatActivity() {
             .setTitle(R.string.error_title)
             .setMessage(R.string.error_message)
             .setPositiveButton(R.string.error_repeat_button) { dialog, which ->
-                getWeather(city)
+                getWeather()
             }
             .create().show()
     }
